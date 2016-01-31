@@ -1,0 +1,40 @@
+Script started on Sun Jan 31 14:41:31 2016
+command: cucumber -v -p android features/firststeps.feature
+Code:
+  * features/support/env.rb
+  * features/support/appium_custom.rb
+  * features/support/hooks.rb
+  * features/support/start_app.rb
+  * features/android/pages/confirmation_page_android.rb
+  * features/android/pages/main_page_android.rb
+  * features/android/pages/registration_page_android.rb
+  * features/android/pages/welcome_page_android.rb
+  * features/step_definitions/firststeps_steps.rb
+
+Features:
+  * features/firststeps.feature
+
+Using the android profile...
+Feature: First Steps
+
+  #  Scenario: Skip welcome message
+  #    Given a welcome message
+  #    When I skip the welcome message
+  #    Then I am taking to the registration screen
+  Scenario: registration[90m                        # features/firststeps.feature:8[0m
+    [32mGiven a welcome message[90m                     # features/step_definitions/firststeps_steps.rb:6[0m[0m
+    [32mWhen I skip the welcome message[90m             # features/step_definitions/firststeps_steps.rb:10[0m[0m
+    [32mThen I am taking to the registration screen[90m # features/step_definitions/firststeps_steps.rb:14[0m[0m
+    [32mThen I select country with code "[32m[1m+43[0m[0m[32m"[90m       # features/step_definitions/firststeps_steps.rb:25[0m[0m
+    [32mThen I select phone number "[32m[1m69911602033[0m[0m[32m"[90m    # features/step_definitions/firststeps_steps.rb:29[0m[0m
+    [32mWhen I submit registration form[90m             # features/step_definitions/firststeps_steps.rb:33[0m[0m
+    [32mThen I am taking to the confirmation screen[90m # features/step_definitions/firststeps_steps.rb:42[0m[0m
+confirmation code: 48333    [32mThen I enter confirmation code[90m              # features/step_definitions/firststeps_steps.rb:48[0m[0m
+    [32mThen I submit confirmation form[90m             # features/step_definitions/firststeps_steps.rb:56[0m[0m
+    [32mThen I am taking to the main screen[90m         # features/step_definitions/firststeps_steps.rb:60[0m[0m
+
+1 scenario ([32m1 passed[0m)
+10 steps ([32m10 passed[0m)
+1m17.135s
+
+Script done on Sun Jan 31 14:42:49 2016
