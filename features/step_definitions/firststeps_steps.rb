@@ -48,7 +48,7 @@ end
 Then(/^I enter confirmation code$/) do
   confirmation_code = `~/Documents/dipl/cucumber/scripts/get_confirmation_code.sh`
 
-  print "confirmation code: #{confirmation_code}"
+  print "confirmation code: #{confirmation_code}\n"
 
   @current_page.select_confirmation_code(confirmation_code)
 end

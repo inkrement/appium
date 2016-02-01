@@ -1,45 +1,40 @@
+require 'page-object'
+
 class ConfirmationPage
+  include PageObject
 
   def trait
-    "UILabel text:'+43 699 11602033'"
+    "//UIAStaticText[contains(@value, '+43 699 11602033')]"
   end
 
   def await(opts={})
-    wait_for_elements_exist([trait])
+    wait_for_xpath_to_exist(trait)
     self
   end
 
   def select_confirmation_code(confirmation_code)
-    wait_for_keyboard
-
-    set_text confirmation_code_input, confirmation_code
+    enter_text_in_xpath(confirmation_code_input, confirmation_code)
   end
 
   def submit_confirmation_form()
-    touch("* marked:'Next'")
-
+    # ios submits it automatically
+    #click_xpath submit_button
     wait_for_confirmation_done
   end
 
   def wait_for_confirmation_done
     result = :invalid
-    main_page = page(MainPage)
+    main_page = MainPage.new($driver)
 
-    wait_for(timeout: 60) do
-      if element_exists(main_page.trait)
-        result = :valid
-      end
-    end
+    main_page.await()
+  end
 
-    case result
-      when :invalid
-        self
-      else
-        main_page.await(timeout:10)
-    end
+
+  def submit_button
+    "//UIAButton[contains(@label, 'Next')]"
   end
 
   def confirmation_code_input
-    "TGTextField"
+    "//UIATextField"
   end
 end

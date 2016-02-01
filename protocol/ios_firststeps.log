@@ -1,0 +1,28 @@
+Script started on Mon Feb  1 11:24:14 2016
+command: cucumber -p ios
+Using the ios profile...
+Feature: First Steps
+
+  Scenario: Skip welcome message[90m                # features/firststeps.feature:3[0m
+    [32mGiven a welcome message[90m                     # features/step_definitions/firststeps_steps.rb:6[0m[0m
+    [32mWhen I skip the welcome message[90m             # features/step_definitions/firststeps_steps.rb:10[0m[0m
+    [32mThen I am taking to the registration screen[90m # features/step_definitions/firststeps_steps.rb:14[0m[0m
+
+  Scenario: registration[90m                        # features/firststeps.feature:8[0m
+    [32mGiven a welcome message[90m                     # features/step_definitions/firststeps_steps.rb:6[0m[0m
+    [32mWhen I skip the welcome message[90m             # features/step_definitions/firststeps_steps.rb:10[0m[0m
+    [32mThen I am taking to the registration screen[90m # features/step_definitions/firststeps_steps.rb:14[0m[0m
+    [32mThen I select country with code "[32m[1m+43[0m[0m[32m"[90m       # features/step_definitions/firststeps_steps.rb:25[0m[0m
+    [32mThen I select phone number "[32m[1m69911602033[0m[0m[32m"[90m    # features/step_definitions/firststeps_steps.rb:29[0m[0m
+    [32mWhen I submit registration form[90m             # features/step_definitions/firststeps_steps.rb:33[0m[0m
+    [32mThen I am taking to the confirmation screen[90m # features/step_definitions/firststeps_steps.rb:42[0m[0m
+confirmation code: 96829
+    [32mThen I enter confirmation code[90m              # features/step_definitions/firststeps_steps.rb:48[0m[0m
+    [32mThen I submit confirmation form[90m             # features/step_definitions/firststeps_steps.rb:56[0m[0m
+    [32mThen I am taking to the main screen[90m         # features/step_definitions/firststeps_steps.rb:60[0m[0m
+
+2 scenarios ([32m2 passed[0m)
+13 steps ([32m13 passed[0m)
+3m9.853s
+
+Script done on Mon Feb  1 11:27:24 2016

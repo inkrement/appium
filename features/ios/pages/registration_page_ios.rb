@@ -1,76 +1,67 @@
+require 'page-object'
+
 class RegistrationPage
+  include PageObject
 
   def trait
-    "* text:'Your Phone'"
+    "//UIAStaticText[contains(@value, 'Your Phone')]"
   end
 
   def await(opts={})
-    wait_for_elements_exist([trait])
+    wait_for_xpath_to_exist(trait)
     self
   end
 
+
   def select_countrycode(country_code)
     # click on country selection
+    click_xpath (country_dropdown)
 
-    if element_does_not_exist("* text:'Austria'")
-      touch(country_dropdown)
+    sleep 1
+
+    # scroll until right country code is found
+    q = xpath_exists? country_label(country_code)
+    while !q
+      swipe(start_x: 0, start_y: 450, end_x: 0, end_y: 250, duration: 2000)
 
       sleep 1
-
-      # scroll until right country code is found
-      q = query(country_label(country_code))
-      while q.empty?
-        scroll("TGListsTableView", 'down')
-
-        #hack: wait
-        sleep 1
-        q = query(country_label(country_code))
-      end
-
-      touch(q)
+      q = xpath_exists? country_label(country_code)
     end
 
-  end
-
-  def select_phonenumber(phone_number)
-    enter_text phone_input, phone_number
+    click_xpath country_label(country_code)
   end
 
   def submit_registration_form()
-    touch("* marked:'Next'")
+    click_xpath submit_button
 
     wait_for_registration_done
   end
 
   def wait_for_registration_done
     result = :invalid
-    confirmation_page = page(ConfirmationPage)
+    confirmation_page = ConfirmationPage.new($driver)
+    wait_for_xpath_to_exist confirmation_page.trait
 
-    wait_for(timeout: 60) do
-      if element_exists(confirmation_page.trait)
-        result = :valid
-      end
-    end
-
-    case result
-      when :invalid
-        self
-      else
-        confirmation_page.await(timeout:10)
-    end
+    confirmation_page.await()
   end
 
-
-  def country_dropdown
-    #the following works only for new installation with wright localisation: "* marked:'USA'"
-    "UIButtonLabel index:0"
+  def select_phonenumber(phone_number)
+    enter_text_in_xpath(phone_input, phone_number)
   end
 
   def phone_input
-    "*"
+    "//UIATextField[contains(@value, 'Your phone number')]"
+  end
+
+  def country_dropdown
+    "//UIAApplication[1]/UIAWindow[1]/UIAButton[1]"
+  end
+
+  def submit_button
+    "//UIAButton[contains(@label, 'Next')]"
   end
 
   def country_label(country_code)
-    "UILabel text:'#{country_code}'"
+    "//UIATableCell/UIAStaticText[contains(@value, '#{country_code}')]"
   end
 end
