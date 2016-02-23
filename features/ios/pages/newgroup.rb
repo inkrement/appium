@@ -12,7 +12,6 @@ class NewGroupPage
     self
   end
 
-
   def setName(name)
     enter_text_in_xpath(group_name_field, name)
   end
@@ -30,10 +29,10 @@ class NewGroupPage
   end
 
   def group_name_field
-    "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.EditText[1]"
+    "//UIATextField"
   end
 
   def submit_button
-    "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]"
+  "//UIAButton[contains(@name,'Create')]"
   end
 end

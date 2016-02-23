@@ -13,6 +13,7 @@ class NewGroupMemberSelectionPage
   end
 
   def searchAndSelectFirst(name)
+    click_xpath(search_icon)
     ## enter name
     enter_text_in_xpath(username_input_field, name)
     ## select first
@@ -30,15 +31,20 @@ class NewGroupMemberSelectionPage
     ng_page.await()
   end
 
+
   def submit
-    "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]"
+    "//UIAButton[contains(@name,'Next')]"
   end
 
   def first_match
-    "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]"
+    "//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]"
+  end
+
+  def search_icon
+    "//UIAStaticText[contains(@value,'Who would you like to message?')]"
   end
 
   def username_input_field
-    "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.EditText[1]"
+    "//UIATextField"
   end
 end
