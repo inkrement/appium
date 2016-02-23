@@ -1,0 +1,25 @@
+Script started on Tue Feb 23 21:19:42 2016
+command: cucumber -p ios features/sendAndReceive.feature
+Using the ios profile...
+Feature: Send and Receive
+
+  ##precondition: send message with unique content e.g. "test#!+" to the test device
+  [36m@ios-only[0m
+  Scenario: receive message[90m                 # features/sendAndReceive.feature:5[0m
+    [32mGiven a main page[90m                       # features/step_definitions/send_and_receive_steps.rb:6[0m[0m
+    [32mThen I should see the message "[32m[1mtest#!+[0m[0m[32m"[90m # features/step_definitions/send_and_receive_steps.rb:47[0m[0m
+
+  Scenario: send message[90m                                   # features/sendAndReceive.feature:9[0m
+    [32mGiven a main page[90m                                      # features/step_definitions/send_and_receive_steps.rb:6[0m[0m
+    [32mThen I click compose new message[90m                       # features/step_definitions/send_and_receive_steps.rb:10[0m[0m
+    [32mThen I search for "[32m[1mFrancesca Schmidt[0m[0m[32m" and select first[90m # features/step_definitions/send_and_receive_steps.rb:18[0m[0m
+    [32mThen I compose message "[32m[1mtest123[0m[0m[32m"[90m                       # features/step_definitions/send_and_receive_steps.rb:26[0m[0m
+    [32mThen I submit message[90m                                  # features/step_definitions/send_and_receive_steps.rb:30[0m[0m
+Assertion failed: (0), function print_media, file interface.c, line 3446.
+    [32mThen I wait for receipt of the message "[32m[1mtest123[0m[0m[32m"[90m       # features/step_definitions/send_and_receive_steps.rb:34[0m[0m
+
+2 scenarios ([32m2 passed[0m)
+8 steps ([32m8 passed[0m)
+2m16.941s
+
+Script done on Tue Feb 23 21:21:59 2016
