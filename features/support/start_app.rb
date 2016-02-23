@@ -4,7 +4,7 @@ def start_android
     apk = {
         platformName: :android,
         deviceName: :nexus,
-        app: File.expand_path("~/Documents/dipl/TelegramAndroid/TMessagesProj/build/outputs/apk/TMessagesProj-release.apk"),
+        app: File.expand_path("~/Documents/dipl/impl/TelegramAndroid/TMessagesProj/build/outputs/apk/TMessagesProj-release.apk"),
         appPackage: 'org.telegram.messenger',
         appActivity: 'org.telegram.ui.LaunchActivity'
       }

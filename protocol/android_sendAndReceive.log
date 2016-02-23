@@ -1,0 +1,19 @@
+Script started on Tue Feb 23 17:25:48 2016
+command: cucumber -p android features/sendAndReceive.feature --tags ~@ios-only
+Using the android profile...
+Feature: Send and Receive
+
+  Scenario: send message[90m                                   # features/sendAndReceive.feature:9[0m
+    [32mGiven a main page[90m                                      # features/step_definitions/send_and_receive_steps.rb:6[0m[0m
+    [32mThen I click compose new message[90m                       # features/step_definitions/send_and_receive_steps.rb:10[0m[0m
+    [32mThen I search for "[32m[1mFrancesca Schmidt[0m[0m[32m" and select first[90m # features/step_definitions/send_and_receive_steps.rb:18[0m[0m
+    [32mThen I compose message "[32m[1mtest123[0m[0m[32m"[90m                       # features/step_definitions/send_and_receive_steps.rb:26[0m[0m
+    [32mThen I submit message[90m                                  # features/step_definitions/send_and_receive_steps.rb:30[0m[0m
+Assertion failed: (0), function print_media, file interface.c, line 3446.
+    [32mThen I wait for receipt of the message "[32m[1mtest123[0m[0m[32m"[90m       # features/step_definitions/send_and_receive_steps.rb:34[0m[0m
+
+1 scenario ([32m1 passed[0m)
+6 steps ([32m6 passed[0m)
+0m39.283s
+
+Script done on Tue Feb 23 17:26:28 2016

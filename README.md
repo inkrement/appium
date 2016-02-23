@@ -13,6 +13,8 @@ Run for android:
 
  > cucumber -p android
 
+ > cucumber -p android features/sendAndReceive.feature --tags ~@ios-only
+
 Run for ios:
 
 ## Relevant Configuration

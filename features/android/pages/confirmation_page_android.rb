@@ -23,7 +23,6 @@ class ConfirmationPage
 
 
   def wait_for_confirmation_done
-    result = :invalid
     main_page = MainPage.new($driver)
 
     wait_for_xpath_to_exist (main_page.trait)
